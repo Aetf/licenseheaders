@@ -40,7 +40,7 @@ import io
 import subprocess
 
 
-__version__ = '0.1'  
+__version__ = '0.1'
 __author__ = 'Johann Petrak'
 __license__ = 'MIT'
 
@@ -57,6 +57,18 @@ except NameError:
 
 # for each processing type, the detailed settings of how to process files of that type
 typeSettings = {
+    "proto": {
+        "extensions": [".proto"],
+        "keepFirst": None,
+        "blockCommentStartPattern": None,  ## used to find the beginning of a header bloc
+        "blockCommentEndPattern": None,   ## used to find the end of a header block
+        "lineCommentStartPattern": re.compile(r'\s*//'),    ## used to find header blocks made by line comments
+        "lineCommentEndPattern": None,
+        "headerStartLine": "//\n",   ## inserted before the first header text line
+        "headerEndLine": "//\n",    ## inserted after the last header text line
+        "headerLinePrefix": "// ",   ## inserted before each header text line
+        "headerLineSuffix": None,            ## inserted after each header text line, but before the new line
+    },
     "java": {
         "extensions": [".java",".scala",".groovy",".jape"],
         "keepFirst": None,
