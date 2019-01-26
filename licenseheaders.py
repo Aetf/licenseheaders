@@ -83,14 +83,14 @@ typeSettings = {
     },
     "script": {
         "extensions": [".sh",".csh",".py",".pl"],
-        "keepFirst": re.compile(r'^#!'),
+        "keepFirst": re.compile(r'^(#!|# -\*-)'),
         "blockCommentStartPattern": None,
         "blockCommentEndPattern": None,
         "lineCommentStartPattern": re.compile(r'\s*#'),    ## used to find header blocks made by line comments
         "lineCommentEndPattern": None,
-        "headerStartLine": "##\n",   ## inserted before the first header text line
-        "headerEndLine": "##\n",    ## inserted after the last header text line
-        "headerLinePrefix": "## ",   ## inserted before each header text line
+        "headerStartLine": "#\n",   ## inserted before the first header text line
+        "headerEndLine": "#\n",    ## inserted after the last header text line
+        "headerLinePrefix": "# ",   ## inserted before each header text line
         "headerLineSuffix": None            ## inserted after each header text line, but before the new line
     },
     "xml": {
